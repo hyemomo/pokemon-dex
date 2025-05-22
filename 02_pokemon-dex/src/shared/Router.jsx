@@ -4,15 +4,23 @@ import Home from '../pages/Home'
 import Dex from '../pages/Dex'
 import Details from './../pages/Details';
 
-const Router = () => {
+const Router = ({ collected, collectPokemon, removePokemon }) => {
   return (
-    <BrowserRouter>
     <Routes>
-    <Route path='/' element={<Home/>} />
-    <Route path='/dex' element={<Dex/>} />
-        <Route path='/details/:id'element={<Details/>} />
-
+      <Route path="/" element={<Home />} />
+      <Route
+        path="/dex"
+        element={
+          <Dex
+            collected={collected}
+            collectPokemon={collectPokemon}
+            removePokemon={removePokemon}
+          />
+        }
+      />
+      <Route path="/details/:id" element={<Details />} />
     </Routes>
-    </BrowserRouter>
-  );};
+  );
+};
+
 export default Router;

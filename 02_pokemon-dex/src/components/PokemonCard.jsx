@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import { useCollectedPokemon } from "../context/CollectedPokemonContext";
 
 const CardContainer = styled.div`
   background-color: ${(props) =>
@@ -52,9 +51,14 @@ const AddButton = styled.button`
   border: none;
   cursor: pointer;
 `;
-const PokemonCard = ({ pokemon, isCollected, onClick }) => {
-  console.log(onClick);
-  const { removePokemon, collectPokemon } = useCollectedPokemon();
+
+const PokemonCard = ({
+  pokemon,
+  isCollected,
+  collectPokemon,
+  removePokemon,
+  onClick,
+}) => {
   const handleClick = (e) => {
     e.stopPropagation();
     isCollected ? removePokemon(pokemon.id) : collectPokemon(pokemon);
@@ -64,12 +68,11 @@ const PokemonCard = ({ pokemon, isCollected, onClick }) => {
     <CardContainer onClick={onClick} variant={isCollected ? "remove" : "add"}>
       <Type>{pokemon.types}</Type>
       <Name>{pokemon.korean_name}</Name>
-      <Image src={pokemon.img_url}></Image>
+      <Image src={pokemon.img_url} />
       <AddButton variant={isCollected ? "remove" : "add"} onClick={handleClick}>
         {isCollected ? "삭제" : "추가"}
       </AddButton>
     </CardContainer>
   );
 };
-
 export default PokemonCard;

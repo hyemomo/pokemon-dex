@@ -1,6 +1,5 @@
 import React from "react";
 import styled from "styled-components";
-import { useCollectedPokemon } from '../context/CollectedPokemonContext';
 import PokemonCard from './PokemonCard';
 
 const Container = styled.div`
@@ -27,22 +26,16 @@ const Cards = styled.div`
 `;
 
 
-
-const Dashboard = () => {
-
-  const {collected} = useCollectedPokemon();
-console.log(collected)
-
+const Dashboard = ({ collected }) => {
   return (
     <Container>
       <Title>혜민이의 포켓몬 도감</Title>
       <Cards>
-        {collected.map((pokemon) => {
-          return <PokemonCard isCollected   key={pokemon.id} pokemon={pokemon}></PokemonCard>;
-        })}
+        {collected.map((pokemon) => (
+          <PokemonCard isCollected key={pokemon.id} pokemon={pokemon} />
+        ))}
       </Cards>
     </Container>
   );
 };
-
 export default Dashboard;

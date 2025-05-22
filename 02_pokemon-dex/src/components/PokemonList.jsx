@@ -23,17 +23,26 @@ const Span = styled.span`
   padding-left: 20px;
 `;
 
-const PokemonList = () => {
+const PokemonList = ({ collected, collectPokemon, removePokemon }) => {
   const pokemons = MOCK_DATA;
-const navigate = useNavigate()
+  const navigate = useNavigate();
+
   return (
     <Container>
       <Span>👆 포켓몬을 골라보세요</Span>
       <GridContainer>
         {pokemons.map((pokemon) => {
-          console.log("pokemon in map:", pokemon);
-
-          return <PokemonCard onClick={()=>{navigate(`/details/${pokemon.id}`);}} pokemon={pokemon}></PokemonCard>;
+          const isCollected = collected.some((p) => p.id === pokemon.id);
+          return (
+            <PokemonCard
+              key={pokemon.id}
+              pokemon={pokemon}
+              isCollected={isCollected}
+              collectPokemon={collectPokemon}
+              removePokemon={removePokemon}
+              onClick={() => navigate(`/details/${pokemon.id}`)}
+            />
+          );
         })}
       </GridContainer>
     </Container>
