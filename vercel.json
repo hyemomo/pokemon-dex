@@ -1,0 +1,6 @@
+{
+  "rootDirectory": "02_pokemon-dex",
+  "buildCommand": "yarn build",
+  "installCommand": "yarn install",
+  "outputDirectory": "dist"
+}
