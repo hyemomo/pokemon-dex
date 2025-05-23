@@ -17,6 +17,11 @@ const GridContainer = styled.div`
   grid-template-columns: repeat(6, 1fr);
   gap: 10px 20px;
   padding: 40px 0px;
+  @media (max-width: 768px) {
+    grid-template-columns: repeat(3, 1fr); 
+    padding: 20px;
+  }
+
 `;
 const Span = styled.span`
   font-size: 24px;

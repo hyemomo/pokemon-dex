@@ -12,6 +12,7 @@ const Container = styled.div`
   padding: 0;
   text-align: center;
 
+
 `;
 const Title = styled.h1`
   font-size:32px;
@@ -24,6 +25,7 @@ const Cards = styled.div`
   grid-template-columns: repeat(6, 1fr);
   padding-bottom: 2rem;
   gap: 10px 20px;
+overflow-x: scroll;
 `;
 
 

@@ -13,11 +13,11 @@ export const CollectedPokemonProvider = ({ children }) => {
       console.log(prev);
       console.log(pokemon.id);
       if (prev.length >= 6) {
-        alert("도감에는 최대 6마리까지만 담을 수 있어요.");
+        alert("더 이상 선택할 수 없습니다.");
         return [...prev]
       }
       if(duplicateCheck(prev, pokemon.id)){
-        alert("중복되는 포켓몬은 담을 수 없어요")
+        alert("이미 선택된 포켓몬입니다.");
         return [...prev]
       }
       return [...prev, pokemon];
